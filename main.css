@@ -1,0 +1,71 @@
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700');
+
+:root {
+  --clr-primary: hsl(136 54% 43%);
+  --clr-bg: hsl(323 21% 16%);
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+#app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+.sidebar {
+  background: var(--clr-primary);
+  padding: 5px;
+  font-size: 1.5em;
+  text-align: center;
+  color: #eee;
+}
+hr {
+  width: 80%;
+  color: #eee;
+  margin-left: 10%;
+}
+
+ul{
+  text-align: left;
+  width: 100%;
+  font-size: 0.8em;
+  margin: 5px;
+}
+ul li {
+  padding: 3px;
+  cursor: pointer;
+}
+ul li:hover {
+  color: #333;
+}
+.active {
+  color: #333;
+}
+.main-content h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+table {
+  width: 100%;
+}
+table tr {
+  text-align: center;
+}
+table tr td {
+  padding: 5px;
+}
+
+
+@media only screen and (max-width: 230px) {
+  /* For mobile phones: */
+  #app {
+    display: block;
+    width: 100%;
+  }
+  .sidebar hr {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+    <div id="app">
+
+        <section class="sidebar">
+          <p>Projekte</p>
+          <hr>
+          <ul id="list">
+            <li :class="{ active: project.isActive}" v-for="project in projects" @click="displayTasks(project.id)">
+              {{ project.title }}
+            </li>
+          </ul>
+        </section>
+
+        <main class="main-content">
+          <header>
+            <h1 v-if="selectedProject">{{ selectedProject.title }}</h1>
+          </header>
+          <hr>
+          <table v-if="selectedProject">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Priorität</th>
+                <th>Übergeben an</th>
+                <th>Abgabedatum</th>
+              </tr>
+            </thead>      
+            <tbody>
+              <tr v-for="task in selectedProject.tasks">
+                <td>{{ task.title }}</td>
+                <td>{{ task.status }}</td>
+                <td>
+                  <select>
+                    <option v-for="p in task.assignedTo">{{ p }}</option>
+                  </select>
+                </td>
+                <td> {{ task.dueDate }} </td>            
+              </tr>
+           </tbody>
+          </table>   
+        </main>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
